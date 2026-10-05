@@ -1,0 +1,137 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>L'Iperbole</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleMatematica2.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="pagina-cornice">
+        <div class="cornice">
+            <h1 style="text-align: center;">L'IPERBOLE</h1>
+            <h2 style="text-align: center;">
+                ──────── ••• ──────── ••• ──────── ••• ──────── ••• ────────
+            </h2>
+            <br>
+            <div class="definizione">
+                L'iperbole è il luogo geometrico dei punti del piano tali che la differenza in valore assoluto delle distanze da due punti fissi F1 e F2 detti fuochi è costante, cioè: <div style="color:blue; font-size: 20px;">| PF<sub>1</sub> - PF<sub>2</sub> | = costante</div>
+            </div>
+
+            <br>
+            <!-- MENU A TENDINA -->
+            <select id="menu" onchange="mostraSezione()">
+                <option value="">-- Scegli un'iperbole --</option>
+                <option value="orizzontale">Iperbole Orizzontale</option>
+                <option value="verticale">Iperbole Verticale</option>
+            </select>
+
+            <br><br>
+            
+            <!-- SEZIONE ORIZZONTALE (Nascosta all'inizio) -->
+            <div class = "sulleX" id="sezione-orizzontale" style="display: none;" >
+                <h2 style = "color: maroon;">Caratteristiche Iperbole Orizzontale</h2>
+                <table id="tableX"> 
+                    <tr>
+                        <td rowspan="6">
+                            <img src = "orizzontale.png">
+                        </td>
+                        <td> Distanza focale </td>
+                        <td> | PF<sub>1</sub> - PF<sub>2</sub> | = 2a </td>
+                    </tr>
+                    <tr>
+                        <td> Equazione </td>
+                        <td> (x <sup>2</sup> / a <sup>2</sup>) - (y <sup>2</sup> / b <sup>2</sup>) = 1 </td>
+                    </tr>
+                    <tr>
+                        <td> Semidistanza focale </td>
+                        <td>  c <sup>2</sup> = a <sup>2</sup> + b <sup>2</sup> </td>
+                    </tr>
+                    <tr>
+                        <td> Coordinate dei fuochi </td>
+                        <td> F<sub>1</sub> = (-c, 0) e F<sub>2</sub> = (c, 0) </td>
+                    </tr>
+                    <tr>
+                        <td> Asintoti </td>
+                        <td> y = ± (b/a) x </td>
+                    </tr>
+                    <tr>
+                        <td> Eccentricità </td>
+                        <td> e = c/a (e > 1) </td>
+                    </tr>	
+                </table>
+            </div>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+            <!-- SEZIONE VERTICALE (Nascosta all'inizio) -->
+            <div class = "sulleY" id="sezione-verticale" style="display: none;" >
+                <h2 style="color: rgb(130, 110, 0);">Caratteristiche Iperbole Verticale</h2>
+                <table id="tableY">
+                    <tr>
+                        <td rowspan="6">
+                            <img src = "verticale.png">
+                        </td>
+                        <td> Distanza focale </td>
+                        <td> | PF<sub>1</sub> - PF<sub>2</sub> | = 2b </td>
+                    </tr>
+                    <tr>
+                        <td> Equazione </td>
+                        <td> (y <sup>2</sup> / b <sup>2</sup>) - (x <sup>2</sup> / a <sup>2</sup>) = 1 </td>
+                    </tr>
+                    <tr>
+                        <td> Semidistanza focale </td>
+                        <td>  c <sup>2</sup> = a <sup>2</sup> + b <sup>2</sup> </td>
+                    </tr>
+                    <tr>
+                        <td> Coordinate dei fuochi </td>
+                        <td> F<sub>1</sub> = (0, -c) e F<sub>2</sub> = (0, c) </td>
+                    </tr>
+                    <tr>
+                        <td> Asintoti </td>
+                        <td> y = ± (a/b) x </td>
+                    </tr>
+                    <tr>
+                        <td> Eccentricità </td>
+                        <td> e = c/b (e > 1) </td>
+                    </tr>
+                </table>
+            </div>
+
+            <script>
+                function mostraSezione() {
+                    let scrollPos = window.scrollY;
+
+                    // Prende il valore selezionato
+                    let scelta = document.getElementById("menu").value;
+
+                    // Prende i due blocchi HTML del sito
+                    let divOrizzontale = document.getElementById("sezione-orizzontale");
+                    let divVerticale = document.getElementById("sezione-verticale");
+
+                    // Nasconde entrambi i blocchi prima di mostrare quello corretto
+                    divOrizzontale.style.display = "none";
+                    divVerticale.style.display = "none";
+
+                    // Mostra solo il blocco scelto cambiando il display da "none" a "block"
+                    if (scelta === "orizzontale") {
+                        divOrizzontale.style.display = "block";
+                    } else if (scelta === "verticale") {
+                        divVerticale.style.display = "block";
+                    }
+
+                    window.scrollTo(0, scrollPos);
+                }
+
+                function mostra1() {
+                    location.href = "matematica.html";
+                }
+            </script>
+        </div>
+        <button id="button1" onclick="mostra1()">
+            Clicca
+        </button>
+            <script src="musica.js"></script>
+    </body>
+</html>

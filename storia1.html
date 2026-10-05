@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Storia della parabola</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleStoria1.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="pagina-storia">
+        <h1 class="titolo">PARABOLA</h1>
+        <div class="top-row">
+            <div class="foto-wrapper">
+                <img class="foto" src="parabolaStoria.jpg" alt="Foto Parabola">
+            </div>
+            <div class="testo generale">
+                <p>
+                    <b>Come nasce la parabola:</b> la parabola nasce da un problema pratico: quando i Greci consultarono l'oracolo di Delo per far terminare la peste questo disse che serviva erigere un altare con volume doppio di quello già presente ad Atene.
+                    Si pensò di raddoppiare il lato del cubo ma ciò avrebbe causato per il volume diventare 8 volte quello iniziale. Il problema si poteva risolvere solo con l'uso di un'equazione di secondo grado, proprio quella che dà origine alla parabola. La soluzione venne trovata da Menecmo.
+                </p>
+            </div>
+            <button id="bp" onclick="mostra1()">
+                Clicca qui per continuare
+            </button>
+        </div>
+
+        <h3 class="esempi-titolo">Esempi d'uso nella storia</h3>
+
+        <div class="esempi-container">
+            <div class="esempio">
+                <div class="testo">
+                    <p>
+                        <b>Specchio ustorio di Archimede:</b><br>
+                        Fonti tarde suggeriscono come durante l'assedio romano di Siracusa (212 a.c.), la cittadina impiegò "specchi ustori" o parabolici, ideati dal matematico Archimede per incendiare le navi romane a distanza. Gli specchi prevedevano una struttura a parabola per sfruttarne la proprietà focale. Le testimonianze sono discordanti ed è probabile che tale tecnologia non sia mai davvero stata applicata, tuttavia la larga presenza degli specchi nelle testimonianze tarde rende certa la conoscenza delle proprietà della parabola.
+                    </p>
+                </div>
+                <img src="naveStoria.jpg" alt="Specchio ustorio">
+            </div>
+
+            <div class="esempio">
+                <div class="testo">
+                    <p>
+                        <b>L'artiglieria da fuoco:</b><br>
+                        Dall'introduzione delle armi da fuoco nelle guerre si sviluppò la necessità di capire la traiettoria dei colpi sparati, soprattutto per i cannoni che potevano dar fuoco anche a grandi distanze. Furono necessari gli studi di Galileo Galilei, sul solco di quelli di Tartaglia, per comprendere definitivamente il moto parabolico dei proiettili, il cui studio prese il nome di balistica. Da quel momento la balistica divenne uno degli studi fondamentali in ogni esercito, specie quello francese.
+                    </p>
+                </div>
+                <img src="cannoneStoria.jpg" alt="Gittata cannone">
+            </div>
+
+            <div class="esempio">
+                <div class="testo">
+                    <p>
+                        <b>L'antenna parabolica (comunicazioni, scopi militari, astronomia):</b><br>
+                        Una delle maggiori applicazioni della parabola si trova nelle telecomunicazioni. L'italiano Guglielmo Marconi ebbe un ruolo chiave nello sviluppo della tecnologia, brevettando per primo l'antenna a riflettore parabolico in grado di sfruttarne la proprietà focale. Il maggiore avanzamento si ebbe durante la seconda guerra mondiale con il radar. Ad oggi tali antenne sono ancora uno dei capisaldi nella comunicazione televisiva, nel campo militare e nella ricerca scientifica astronomica.
+                    </p>
+                </div>
+                <img src="parabolaAntennaStoria.jpg" alt="Antenna parabolica">
+            </div>
+        </div>
+        <button id="bp1" onclick="mostra2()">
+            Clicca qui per tornare alla home
+        </button>
+    <audio id="bgMusic" loop style="display:none">
+        <source src="musicaMuseo.mp3" type="audio/mpeg">
+    </audio>
+        <script>
+            function mostra1() {
+                location.href = "storia1.1.html";
+            }
+            function mostra2() {
+                location.href = "storia.html";
+            }
+        </script>
+            <script src="musica.js"></script>
+    </body>
+</html>

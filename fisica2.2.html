@@ -1,0 +1,50 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"> 
+        <link rel="stylesheet" href="styleFisica2.css">
+        <title>MotoCircolare</title>
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza">
+        <div class="navbar">
+            <ul>
+                <li><a href="fisica2.html">Home</a></li>
+                <li><a href="fisica2.1.html">Formule</a></li>
+            </ul>
+        </div>
+        <div class="corpof1">
+            <div id="p2" class="schede">
+                <section class="pagina" data-titolo="⏰ Orologio">
+                    <h2>MCU: la lancetta dei secondi</h2>
+                    <p class="riga"><span>🔄</span><span>Fa un giro completo <b>ogni 60 secondi</b></span></p>
+                    <p class="riga"><span>⚖️</span><span>Velocità angolare <b>sempre uguale</b></span></p>
+                    <p class="riga"><span>⭕</span><span>La punta disegna una <b>circonferenza</b></span></p>
+                    <p class="evidenza">Esempio perfetto di MCU</p>
+                </section>
+                <section class="pagina" data-titolo="🏍️ Moto">
+                    <h2>MCUA: la ruota in partenza</h2>
+                    <p class="riga"><span>🏁</span><span>Il motociclista <b>accelera</b>: la ruota gira sempre più veloce</span></p>
+                    <p class="riga"><span>➕</span><span>Accelerazione <b>tangenziale</b>: fa aumentare la velocità</span></p>
+                    <p class="riga"><span>🎯</span><span>Accelerazione <b>centripeta</b>: tiene il corpo sulla circonferenza</span></p>
+                </section>
+            </div> <br>
+        </div>
+
+        <button class="button" onclick="mostra1()">
+            Clicca
+        </button>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "fisica.html";
+            }
+        </script>
+            <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>

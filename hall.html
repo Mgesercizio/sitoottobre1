@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Hall</title>
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza">
+        <button id="button1" onclick="mostra1()">
+            Clicca
+        </button>
+
+        <button id="button2" onclick="mostra2()">
+            Clicca
+        </button>
+
+        <button id="button3" onclick="mostra3()">
+            Clicca
+        </button>
+
+        <!-- il monaco della Hall porta al quiz -->
+        <button id="monaco-quiz" type="button" onclick="location.href='quiz.html'" aria-label="Il Quiz del Monaco"></button>
+        <div id="etichetta-quiz">❓ Hai finito la visita del museo?<br>Allora tocca il monaco: c'è un quiz per te!</div>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            function mostra1() {
+                location.href = "fisica.html";
+            }
+
+            function mostra2() {
+                location.href = "matematica.html";
+            }
+
+            function mostra3() {
+                location.href = "storia.html";
+            }
+        </script>
+            <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>

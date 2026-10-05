@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Storia dell'iperbole</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleStoria1.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="pagina-storia">
+        <h1 class="titolo">IPERBOLE</h1>
+        <div class="top-row">
+            <div class="foto-wrapper">
+                <img class="foto" src="iperboleStoria.jpeg" alt="Foto Iperbole">
+            </div>
+            <div class="testo generale">
+                <p>
+                    <b>Scoperta/Origine:</b> Le coniche, inclusa l'iperbole, furono studiate per la prima volta dagli antichi greci, con tracce nel lavoro di Euclide.
+                    Apollonio di Perga (262-190 a.C.) è considerato colui che ha trattato le coniche in modo compiuto, definendo l'iperbole come intersezione di un cono con un piano.
+                    La rappresentazione tramite equazione cartesiana si deve a René Descartes, che nel 1637 pubblicò la Géométrie, fondando la geometria analitica.
+                    Successivamente matematici come John Wallis, Isaac Newton, Guillaume de l'Hôpital e Leonhard Euler contribuirono a perfezionare l'analisi dell'iperbole e delle altre coniche.
+                </p>
+            </div>
+            <button id="bp" onclick="mostra1()">
+                Clicca qui per continuare
+            </button>
+        </div>
+
+        <h3 class="esempi-titolo">Esempi d'uso nella storia</h3>
+
+        <div class="esempi-container">
+            <div class="esempio">
+                <div class="testo">
+                    <p>
+                        <b>Navigazione:</b><br>
+                        Prima del GPS, le navi e gli aerei usavano il sistema LORAN (Long Range Navigation). Si basa sulla differenza di tempo tra i segnali ricevuti da due stazioni fisse. Poiché l'iperbole è il luogo dei punti in cui la differenza delle distanze dai fuochi è costante, la posizione del ricevitore viene individuata sull'intersezione di diverse curve iperboliche.
+                    </p>
+                </div>
+                <img src="traiettoriaIperboleStoria.jpeg" alt="Traiettoria iperbole">
+            </div>
+
+            <div class="esempio">
+                <div class="testo">
+                    <p>
+                        <b>Informatica: Algoritmi di compressione:</b><br>
+                        Alcuni metodi di compressione dati e algoritmi di crittografia utilizzano le proprietà delle curve iperboliche per gestire calcoli complessi in modo efficiente, proteggendo la sicurezza delle transazioni online.
+                    </p>
+                </div>
+                <img src="compressioneAlgStoria.jpeg" alt="Compressione algoritmi">
+            </div>
+
+            <div class="esempio">
+                <div class="testo">
+                    <p>
+                        <b>Medicina - Farmacocinetica e Dosaggio:</b><br>
+                        Molte reazioni biochimiche nel corpo umano seguono l'equazione di Michaelis-Menten. Il grafico che mette in relazione la velocità di una reazione enzimatica con la concentrazione del substrato è un ramo di iperbole. Questo serve ai medici per capire qual è il dosaggio massimo di un farmaco oltre il quale il corpo non riesce più ad assorbirlo efficacemente (saturazione).
+                    </p>
+                </div>
+                <img src="equazioneMichaelisStoria.jpeg" alt="Equazione di Michaelis-Menten">
+            </div>
+        </div>
+        <button id="bp1" onclick="mostra2()">
+            Clicca qui per tornare alla home
+        </button>
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "storia2.html";
+            }
+            function mostra2() {
+                location.href = "storia.html";
+            }
+        </script>
+            <script src="musica.js"></script>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+.corpof1  {
+    color:#1A1A1A;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+#p1 {
+    position: absolute;
+    top: 97px;
+    left: 375px;
+    max-width: 530px;
+    margin-left:20px;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    font-size: 17px;
+    scale: 0.6;
+}
+
+#p2{
+    position: absolute;
+    top: 127px;
+    left: 420px;
+    max-width: 440px;
+    font-size: 18px;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    margin-left:20px;
+    scale: 0.7;
+}
+
+.p3{
+    margin-left:20px;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+}
+
+.corpof2 {
+    position: absolute;
+    top: 152px;
+    left: 440px;
+    max-width: 390px;
+    font-size: 15px;
+    scale: 0.7;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    margin-left:20px;
+}
+
+.formula{
+    font-weight: bold;
+    color: #c0392b;
+}
+
+.col{
+    background-color: #ecf0f1;
+}
+
+th{
+    background-color: #34495e;
+    color: white;
+}
+
+th, td{
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: center;
+}
+
+table{
+    position: absolute;
+    top: 60px;
+    left: 197px;
+    max-width: 1000px;
+    scale: 0.30;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+h1{
+    text-align: center;
+    color: #2c3e50;
+}
+
+body{
+    background-image: url(backgroundStanzeGeneraleCornice.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.button{
+    width: 130px;
+    height: 220px;
+    background-color: transparent;
+    border-color: transparent;
+    position: absolute;
+    top: 220px;
+    right: -20px;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+.navbar {
+    background-color: none;
+    position: absolute;
+    left: 150px;
+    top: 210px;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 28px;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+}
+
+ul {
+    list-style-type: none;
+    padding: 5px;
+}

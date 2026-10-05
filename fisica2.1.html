@@ -1,0 +1,112 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Formule del moto circolare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"> 
+        <link rel="stylesheet" href="styleFisica2.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza">
+        <div class="navbar">
+            <ul>
+                <li><a href="fisica2.html">Home</a></li>
+                <li><a href="fisica2.2.html">Esempi</a></li>
+            </ul>
+        </div>
+        <div class="corpof1">
+            <div class="corpof2">
+                Parliamo adesso delle formule. Tutti e due i moti condividono varie equazioni, in particolare il moto circolare uniformemente accelerato contiene
+                tutte quelle del moto circolare uniforme, oltre ad averne di sue. <br>
+                <label>
+                    <!-- CASELLA DA SPUNTARE -->
+                    <input type="checkbox" id="check">
+
+                    <!-- TESTO -->
+                    Clicca sulla spunta per vedere il formulario
+                </label>
+
+                <!-- BOTTONE -->
+                <button onclick="mostraTabella()">
+                    Mostra formulario
+                </button>
+
+                <script>
+                    function mostraTabella() {
+                    let check = document.getElementById("check");
+                    if (check.checked) {
+                        document.getElementById("tabella").style.display = "table";
+                    } else {
+                        alert("Devi prima spuntare la casella.");
+                    }
+                    }
+                </script>
+
+            </div>
+            <table id="tabella" style="display: none" onclick="this.style.display='none'">
+                <caption>Clicca sulla tabella per chiuderla</caption>
+                <tr>
+                    <th>Nome</th>
+                    <th>Formula</th>
+                    <th>Definizione/Esempio</th>
+                </tr> <tr>
+                    <td>Velocità Tangenziale</td>
+                    <td class="formula">v = ω · r</td>
+                    <td>Velocità di un punto sulla ruota.</td>
+                </tr> <tr class="col">
+                    <td>Velocità Angolare</td>
+                    <td class="formula">ω = Δθ / Δt</td>
+                    <td>Quanto velocemente gira una giostra.</td>
+                </tr> <tr>
+                    <td>Periodo</td>
+                    <td class="formula">T = 1 / f</td>
+                    <td>Tempo necessario per fare un giro completo.</td>
+                </tr> <tr class="col">
+                    <td>Frequenza</td>
+                    <td class="formula">f = 1 / T</td>
+                    <td>Numero di giri al secondo.</td>
+                </tr> <tr>
+                    <td>Accelerazione Centripeta</td>
+                    <td class="formula">ac = v² / r</td>
+                    <td>Forza che mantiene un’auto in curva.</td>
+                </tr> <tr class="col">
+                    <td>Legge Oraria Angolare (MCU)</td>
+                    <td class="formula">θ = θ₀ + ω · t</td>
+                    <td>Posizione angolare nel tempo.</td>
+                </tr>
+                <!-- MCUA -->
+                <tr>
+                    <td>Velocità Angolare Finale</td>
+                    <td class="formula">ω = ω₀ + α · t</td>
+                    <td>Una ventola accelera gradualmente.</td>
+                </tr> <tr class="col">
+                    <td>Accelerazione Angolare</td>
+                    <td class="formula">α = Δω / Δt</td>
+                    <td>Quanto rapidamente aumenta la rotazione.</td>
+                </tr> <tr>
+                    <td>Legge Oraria Angolare (MCUA)</td>
+                    <td class="formula">θ = θ₀ + ω₀t + ½αt²</td>
+                    <td>Rotazione con accelerazione costante.</td>
+                </tr> <tr class="col">
+                    <td>Formula di Torricelli Angolare</td>
+                    <td class="formula">ω² = ω₀² + 2αΔθ</td>
+                    <td>Calcolo della velocità finale senza tempo.</td>
+                    </tr>
+            </table>
+        </div>
+        <button class="button" onclick="mostra1()">
+            Clicca
+        </button>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "fisica.html";
+            }
+        </script>
+            <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>

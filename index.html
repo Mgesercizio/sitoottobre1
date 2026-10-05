@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Museo</title>
+        <link rel="stylesheet" href="museo.css">
+        <style>
+            /* questa pagina è solo un "contenitore": le stanze si aprono
+               nel riquadro qui sotto, mentre la musica resta qui e
+               continua a suonare da una stanza all'altra */
+            html, body { margin: 0; height: 100%; overflow: hidden; background: #1a120a; }
+            #stanza { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; }
+        </style>
+    </head>
+    <body>
+        <iframe id="stanza" src="hall.html" title="Museo" allow="autoplay; fullscreen"></iframe>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            // se per errore questa pagina si apre dentro il riquadro, mostra la Hall
+            if (window.top !== window.self) location.replace("hall.html");
+
+            // il titolo della scheda segue la stanza aperta
+            var riquadro = document.getElementById("stanza");
+            riquadro.addEventListener("load", function () {
+                try { document.title = "Museo – " + riquadro.contentDocument.title; } catch (e) {}
+            });
+        </script>
+        <button id="schermo-intero" type="button">⛶ Schermo intero</button>
+        <script>
+            // schermo intero: nel visore il museo occupa tutta la finestra
+            var bSchermo = document.getElementById("schermo-intero");
+            if (!document.documentElement.requestFullscreen) bSchermo.style.display = "none";
+            bSchermo.addEventListener("click", function () {
+                if (document.fullscreenElement) document.exitFullscreen();
+                else document.documentElement.requestFullscreen().catch(function () {});
+            });
+            document.addEventListener("fullscreenchange", function () {
+                bSchermo.textContent = document.fullscreenElement ? "⛶ Esci da schermo intero" : "⛶ Schermo intero";
+            });
+        </script>
+        <script src="musica.js"></script>
+    </body>
+</html>

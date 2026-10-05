@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Il Quiz del Monaco</title>
+        <link rel="stylesheet" href="museo.css">
+        <link rel="stylesheet" href="styleQuiz.css">
+    </head>
+    <body class="stanza">
+        <div id="scena">
+            <!-- targa nel quadro di sinistra -->
+            <div id="targa">
+                <h1>Il Quiz<br>del Monaco</h1>
+                <div class="fregio"></div>
+                <div class="sotto" id="targa-sotto">Tre prove per chi ha visitato il museo</div>
+                <div class="grande" id="grande">?</div>
+                <div class="contatore" id="contatore"></div>
+                <div class="punti" id="punti"></div>
+                <div id="perline"></div>
+            </div>
+
+            <!-- il monaco con il suo fumetto: toccandolo dà un indizio -->
+            <div id="fumetto" aria-live="polite"></div>
+            <button id="monaco" type="button" aria-label="Il monaco: toccalo per un indizio"></button>
+            <div id="tocca-monaco">Tocca il monaco per un indizio</div>
+
+            <!-- la pergamena dove compaiono menu, domande e risultati -->
+            <div id="pergamena"></div>
+
+            <!-- porta: torna alla Hall -->
+            <button id="porta" type="button" onclick="location.href='hall.html'">Torna alla Hall</button>
+        </div>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+
+        <script src="quiz.js"></script>
+        <script src="museo.js"></script>
+        <script src="musica.js"></script>
+    </body>
+</html>

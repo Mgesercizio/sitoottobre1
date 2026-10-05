@@ -1,0 +1,43 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleFisica.css">
+        <title>SelettoreStanzaFisica</title>
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza">
+        <button id="button1" onclick="mostra1()">
+            Clicca
+        </button>
+
+        <button id="button2" onclick="mostra2()">
+            Clicca
+        </button>
+
+        <button id="button3" onclick="mostra3()">
+            Clicca
+        </button>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            function mostra1() {
+                location.href = "fisica1.html";
+            }
+
+            function mostra2() {
+                location.href = "fisica2.html";
+            }
+
+            function mostra3() {
+                location.href = "hall.html";
+            }
+        </script>
+            <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>

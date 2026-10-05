@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Storia dell'ellisse</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleStoria2.1.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="pagina-storia">
+        <h1 class="titolo">ELLISSE</h1>
+        <div class="top-row">
+            <div class="foto-wrapper">
+                <img class="foto" src="ellisse1massimo.jpeg" alt="Foto Ellisse">
+            </div>
+            <div class="testo generale">
+                <p>
+                    <b>Come nasce l'ellisse:</b> Le coniche, tra cui l'ellisse, furono studiate dagli antichi Greci.
+                    Fu Apollonio a fornire la descrizione completa nel suo celebre <i>Coniche</i>, definendo l'ellisse come l'intersezione di un cono con un piano inclinato che non taglia la base del cono.
+                    Con Cartesio, l'ellisse venne espressa tramite equazioni cartesiane, aprendo la strada alla rappresentazione analitica delle curve.
+                    Matematici come Keplero, Newton ed Euler ne approfondirono le proprietà, soprattutto in relazione alle orbite planetarie e alla gravitazione universale.
+                </p>
+            </div>
+        </div>
+
+        <h3 class="esempi-titolo">Applicazioni e curiosità</h3>
+
+        <div class="esempi-container">
+            <div class="colonna-sinistra">
+                <div class="testo">
+                    <p>
+                        <b>Architettura e acustica:</b><br>
+                        L'ellisse è usata per creare cupole e archi armoniosi, poiché distribuisce le forze in modo uniforme — come nella Cupola di San Pietro di Michelangelo.
+                        Veniva inoltre impiegata per migliorare l'acustica nei teatri antichi.
+                    </p>
+                </div>
+                <div class="testo">
+                    <p>
+                        <b>Applicazioni moderne:</b><br>
+                        L'ellisse è fondamentale per calcolare la posizione GPS: la distanza costante dalla sorgente definisce curve ellittiche che aiutano a triangolare la posizione.
+                        Alcuni orologi solari tracciano curve ellittiche in base all'inclinazione dell'asse terrestre.
+                        Molte strutture biologiche (cellule, organi, orbite oculari) hanno forma ellittica, utile per modelli di crescita e simulazioni mediche.
+                    </p>
+                </div>
+            </div>
+
+            <button class="sulla-porta" onclick="mostra1()" aria-label="Apri la porta">
+            </button>
+
+            <div class="esempio">
+                <div class="testo">
+                    <p>
+                        <b>Le orbite di Keplero:</b><br>
+                        Keplero scoprì che i pianeti si muovono attorno al Sole seguendo orbite ellittiche, con il Sole in uno dei fuochi.
+                        Questa intuizione rivoluzionò la cosmologia e divenne la Prima Legge di Keplero.
+                        Le orbite ellittiche descrivono anche il moto di satelliti artificiali e di corpi celesti legati gravitazionalmente, come comete e lune.<br><br>
+                        <i>Clicca la porta per approfondire gli esperimenti di Keplero.</i>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button id="bp1" onclick="mostra2()">
+            Clicca qui per tornare alla home
+        </button>
+    <audio id="bgMusic" loop style="display:none">
+        <source src="musicaMuseo.mp3" type="audio/mpeg">
+    </audio>
+        <script>
+            function mostra1() {
+                location.href = "scienze.html";
+            }
+            function mostra2() {
+                location.href = "storia.html";
+            }
+        </script>
+            <script src="musica.js"></script>
+    </body>
+</html>

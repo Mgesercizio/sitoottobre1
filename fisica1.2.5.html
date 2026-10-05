@@ -1,0 +1,43 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styleFisica1.2.css">
+        <title>Gittata</title>
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="pagina-formula" style="background-color: #cc9052;">
+        <div class="cFormule">
+            <img src="galileoGalilei.jpg" alt="Galileo Galilei" class="imgGalileo">
+            <div class="testoFormule">
+                <h1 class="titolo">Gittata</h1>
+                <p class="formula">G = (v₀² · sin(2θ)) / g</p>
+                Si ottiene combinando:
+
+                <ul>
+                    <li>la legge oraria orizzontale</li>
+                    <li>il tempo totale di volo</li>
+                </ul>
+
+                La formula usa anche l’identità trigonometrica:
+
+                <p class="formula">2sin(θ)cos(θ) = sin(2θ)</p>
+            </div>
+        </div>
+
+        <button onclick="mostra1()">
+            Torna indietro
+        </button>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "fisica1.2.html";
+            }
+        </script>
+            <script src="musica.js"></script>
+    </body>
+</html>

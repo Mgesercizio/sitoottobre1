@@ -1,0 +1,801 @@
+/* =====================================================================
+   museo.css — leggibilità e adattamento allo schermo
+   Va collegato DOPO il foglio di stile di ogni pagina.
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+
+:root {
+    --inchiostro: #2b1d10;      /* testo scuro su pergamena */
+    --inchiostro-2: #5a4128;    /* testo secondario */
+    --pergamena: #faf3e4;       /* pannelli chiari */
+    --oro: #9a6a17;             /* titoli */
+    --oro-chiaro: #e7c77a;      /* evidenze su fondo scuro */
+    --notte: #1a120a;           /* fondo scuro */
+    --titoli: 'Cinzel', 'Trajan Pro', Georgia, 'Times New Roman', serif;
+    --testo: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+
+button:focus-visible, a:focus-visible, select:focus-visible {
+    outline: 3px solid var(--oro-chiaro);
+    outline-offset: 2px;
+}
+
+/* =====================================================================
+   1. STANZE (pagine con sfondo a tutto schermo e pulsanti sulle pergamene)
+   La pagina è disegnata su una "tela" di 1280x720 che museo.js
+   ingrandisce o rimpicciolisce per adattarla a qualsiasi schermo:
+   così testi e pulsanti restano sempre sopra cornici e pergamene.
+   ===================================================================== */
+html:has(body.stanza) {
+    height: 100%;
+    overflow: hidden;
+    background: var(--notte);
+}
+
+body.stanza {
+    margin: 0 !important;
+    width: 1280px !important;
+    height: 720px !important;
+    box-sizing: border-box;
+    border: 8px solid transparent;          /* riproduce il margine originale */
+    position: relative !important;
+    overflow: hidden !important;
+    transform-origin: 0 0;
+    background-attachment: scroll !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-origin: border-box !important;
+    font-family: var(--testo);
+    color: var(--inchiostro);
+}
+
+/* scritte "Clicca" sulle pergamene */
+body.stanza > button,
+body.stanza .button {
+    font-family: var(--titoli) !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    color: var(--inchiostro) !important;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-shadow: 0 0 6px rgba(250, 235, 200, 0.9);
+    transition: text-shadow 0.2s;
+}
+body.stanza > button:hover,
+body.stanza .button:hover {
+    text-shadow: 0 0 10px #fff3cf, 0 0 18px var(--oro-chiaro);
+}
+
+/* menu nella cornice di sinistra */
+body.stanza .navbar {
+    left: 164px !important;
+    top: 124px !important;
+    width: 126px;
+    height: 286px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body.stanza .navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+body.stanza .navbar li { margin: 14px 0; }
+body.stanza .navbar a {
+    margin: 0 !important;
+    font-family: var(--titoli) !important;
+    font-size: 19px !important;
+    font-weight: 700;
+    color: var(--inchiostro) !important;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+}
+body.stanza .navbar a:hover { border-bottom-color: var(--oro); color: var(--oro) !important; }
+
+/* testo dentro la cornice centrale */
+body.stanza .quadro,
+body.stanza .content,
+body.stanza #p1,
+body.stanza #p2,
+body.stanza .corpof2 {
+    position: absolute !important;
+    left: 494px !important;
+    top: 172px !important;
+    width: 308px !important;
+    height: 234px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box;
+    scale: 1 !important;
+    overflow-y: auto;
+    text-align: left !important;
+    font-family: var(--testo) !important;
+    font-size: 13px !important;
+    line-height: 1.42;
+    color: var(--inchiostro) !important;
+    scrollbar-width: thin;
+    scrollbar-color: #8a6a3e transparent;
+}
+body.stanza .quadro h2,
+body.stanza .content h2,
+body.stanza .quadro h3 {
+    font-family: var(--titoli);
+    color: #5c3208;
+    font-size: 16px;
+    margin: 0 0 5px;
+}
+body.stanza .quadro h3 { font-size: 13px; margin: 0 0 3px; }
+body.stanza .content p,
+body.stanza .quadro p { margin: 0 0 6px; }
+body.stanza .content ul,
+body.stanza .quadro ul {
+    list-style: disc;
+    padding: 0 0 0 18px;
+    margin: 0 0 6px;
+}
+body.stanza strong, body.stanza b { color: #1c1208; }
+
+/* immagine dentro la cornice centrale (fisica1) */
+body.stanza img.quadro-img {
+    position: absolute;
+    left: 494px;
+    top: 172px;
+    width: 308px;
+    height: 234px;
+    object-fit: cover;
+    scale: 1;
+}
+
+/* griglia 2x2 dell'esempio svolto (fisica1.3) */
+body.stanza .quadro.esempio { font-size: 12px !important; line-height: 1.35 !important; }
+body.stanza .quadro.esempio p { margin: 0 0 4px; }
+body.stanza .quadro.esempio .traccia { margin-bottom: 8px; }
+body.stanza .quadro.esempio .griglia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 14px;
+}
+body.stanza .formula-evid {
+    font-weight: 700;
+    color: #7a2e12;
+}
+
+/* menu delle formule (fisica1.2) */
+body.stanza .quadro.menu-formule {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-content: center;
+    overflow: hidden;
+}
+body.stanza .quadro.menu-formule button {
+    position: static !important;
+    width: auto !important;
+    height: 56px !important;
+    font-family: var(--titoli) !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    line-height: 1.2;
+    color: var(--inchiostro) !important;
+    background: rgba(255, 250, 238, 0.55) !important;
+    border: 1px solid rgba(90, 65, 40, 0.45) !important;
+    border-radius: 4px;
+    text-shadow: none;
+    cursor: pointer;
+}
+body.stanza .quadro.menu-formule button:hover {
+    background: rgba(255, 250, 238, 0.9) !important;
+    border-color: var(--oro) !important;
+}
+
+/* fisica2: foto piccola dentro il testo */
+body.stanza #p1 img {
+    float: right;
+    width: 92px !important;
+    height: auto !important;
+    margin: 2px 0 6px 10px !important;
+    border-radius: 3px;
+}
+
+/* fisica2.1: casella + pulsante e formulario */
+body.stanza .corpof2 label { display: block; margin: 10px 0 8px; font-weight: 600; }
+body.stanza .corpof2 button {
+    font-family: var(--titoli);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 10px;
+    color: var(--inchiostro);
+    background: rgba(255, 250, 238, 0.8);
+    border: 1px solid #8a6a3e;
+    border-radius: 4px;
+    cursor: pointer;
+}
+body.stanza #tabella {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+    scale: 1 !important;
+    width: 820px;
+    max-width: none !important;
+    z-index: 50;
+    background: var(--pergamena) !important;
+    font-family: var(--testo);
+    font-size: 14px;
+    color: var(--inchiostro);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+body.stanza #tabella caption {
+    caption-side: bottom;
+    padding: 6px;
+    font-size: 12px;
+    color: var(--pergamena);
+    text-shadow: 0 1px 3px #000;
+}
+body.stanza #tabella th {
+    background: #4a3520 !important;
+    font-family: var(--titoli);
+    font-size: 13px;
+}
+body.stanza #tabella th,
+body.stanza #tabella td { padding: 6px 10px !important; border-color: #b59a74 !important; }
+body.stanza #tabella .col { background: #f1e5cc !important; }
+body.stanza #tabella .formula { color: #8a2c10 !important; white-space: nowrap; }
+
+/* matematica: pulsanti sopra il video */
+body.stanza .video { width: 100% !important; height: 100% !important; }
+body.stanza #bp {
+    color: #fff !important;
+    text-shadow: 0 1px 4px #000, 0 0 12px rgba(0, 0, 0, 0.8) !important;
+}
+body.stanza #b1, body.stanza #b2, body.stanza #b3 {
+    height: auto !important;
+    padding: 10px 8px !important;
+    color: #fff8e6 !important;
+    background: rgba(26, 18, 10, 0.62) !important;
+    border: 1px solid rgba(231, 199, 122, 0.7) !important;
+    border-radius: 6px;
+    text-shadow: 0 1px 2px #000 !important;
+    font-size: 14px !important;
+}
+body.stanza #b1:hover, body.stanza #b2:hover, body.stanza #b3:hover {
+    background: rgba(26, 18, 10, 0.85) !important;
+}
+body.stanza #bh {
+    font-size: 14px !important;
+    color: var(--inchiostro) !important;
+    background: var(--pergamena) !important;
+    border: 1px solid #8a6a3e !important;
+    border-radius: 4px;
+    text-shadow: none !important;
+}
+
+/* scienze (planetario) */
+body.stanza .marquee-text h1 {
+    font-family: var(--titoli);
+    color: var(--oro-chiaro);
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+body.stanza .marquee-text marquee { opacity: 0.9 !important; }
+body.stanza #exit {
+    color: #fff8e6 !important;
+    text-shadow: 0 1px 4px #000, 0 0 10px #000 !important;
+}
+
+/* =====================================================================
+   2. PAGINE DI STORIA (pannelli chiari sopra la fotografia)
+   ===================================================================== */
+body.pagina-storia {
+    font-family: var(--testo);
+    color: var(--inchiostro);
+}
+/* l'opacità rendeva trasparente anche il testo: la spostiamo solo sullo sfondo */
+body.pagina-storia .titolo,
+body.pagina-storia .esempi-titolo,
+body.pagina-storia .testo {
+    opacity: 1 !important;
+    background-color: rgba(250, 243, 228, 0.9) !important;
+    color: var(--inchiostro);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+body.pagina-storia .titolo {
+    font-family: var(--titoli);
+    font-size: clamp(22px, 1.7vw, 34px) !important;
+    letter-spacing: 3px;
+    color: var(--oro);
+    padding: 4px 8px !important;
+}
+body.pagina-storia .esempi-titolo {
+    font-family: var(--titoli);
+    font-size: clamp(14px, 1vw, 20px) !important;
+    letter-spacing: 1px;
+}
+body.pagina-storia .testo {
+    overflow-y: auto !important;
+    scrollbar-width: thin;
+    scrollbar-color: #8a6a3e transparent;
+    padding: 8px 12px !important;
+}
+body.pagina-storia .testo.generale { height: auto !important; max-height: 25vh; }
+body.pagina-storia .testo p {
+    font-size: clamp(14px, 0.95vw, 19px) !important;
+    line-height: 1.45 !important;
+}
+body.pagina-storia .testo b { color: var(--oro); }
+body.pagina-storia button {
+    font-family: var(--titoli) !important;
+    font-weight: 700;
+    font-size: 13px !important;
+    color: var(--inchiostro);
+    background-color: var(--pergamena) !important;
+    border: 1px solid #8a6a3e !important;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+body.pagina-storia button:hover { background-color: #fff !important; }
+/* pulsante trasparente sopra la porta disegnata (storia2.1): resta invisibile */
+body.pagina-storia button.sulla-porta {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none;
+}
+
+/* =====================================================================
+   3. PAGINE DI MATEMATICA NELLA CORNICE DORATA
+   ===================================================================== */
+html:has(body.pagina-cornice) { height: 100%; overflow: hidden; }
+body.pagina-cornice {
+    height: 100vh;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background-size: 100% 100% !important;
+    font-family: var(--testo) !important;
+    color: var(--inchiostro) !important;
+}
+/* area interna alla cornice: il contenuto scorre qui dentro */
+body.pagina-cornice .dentro-cornice,
+body.pagina-cornice .cornice {
+    position: fixed !important;
+    inset: 7.5vh 8.5vw 7.5vh 8.5vw !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    scale: 1 !important;
+    padding: 10px 24px 70px !important;
+    overflow-y: auto !important;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #9a8a6a transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body.pagina-cornice .dentro-cornice > *,
+body.pagina-cornice .cornice > * { max-width: 1200px; width: 100%; }
+body.pagina-cornice h1 {
+    font-family: var(--titoli) !important;
+    color: var(--inchiostro);
+    font-size: clamp(26px, 2vw, 40px) !important;
+    letter-spacing: 3px !important;
+    margin: 10px 0 6px !important;
+    text-align: center;
+}
+body.pagina-cornice h2, body.pagina-cornice h3 { font-family: var(--titoli); }
+body.pagina-cornice p, body.pagina-cornice li, body.pagina-cornice td {
+    font-size: clamp(15px, 1.05vw, 20px) !important;
+    line-height: 1.5 !important;
+}
+/* matematica1: i paragrafi erano a 10px */
+body.pagina-cornice .paragrafo { flex: 1 1 0 !important; height: auto !important; }
+body.pagina-cornice .dentro-cornice { overflow-x: hidden !important; }
+body.pagina-cornice .paragrafo { min-width: 0; box-sizing: border-box; }
+body.pagina-cornice .paragrafo h3 { color: var(--oro) !important; letter-spacing: 2px; }
+body.pagina-cornice .top { width: 100%; align-items: stretch !important; gap: 16px !important; }
+body.pagina-cornice .testo-freccia { flex: 0 0 210px !important; }
+body.pagina-cornice marquee,
+body.pagina-cornice #menu,
+body.pagina-cornice .btn-invia {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block;
+}
+body.pagina-cornice marquee { width: 100% !important; max-width: 900px !important; box-sizing: border-box; font-family: var(--titoli); }
+body.pagina-cornice #menu { width: auto; max-width: 320px; font-size: 14px; }
+body.pagina-cornice .btn-invia { width: 180px; font-family: var(--titoli); font-size: 14px !important; }
+body.pagina-cornice #risultato { font-size: 15px; }
+body.pagina-cornice .sezione { font-size: 15px; }
+/* matematica2 */
+body.pagina-cornice .definizione { font-size: clamp(16px, 1.1vw, 21px) !important; line-height: 1.5; }
+body.pagina-cornice #tableX, body.pagina-cornice #tableY { font-size: clamp(15px, 1.05vw, 20px) !important; }
+body.pagina-cornice select#menu { display: block; }
+/* matematica3 */
+body.pagina-cornice .dentro-cornice > p.sottotitolo { text-align: center; color: var(--inchiostro-2); font-style: italic; }
+body.pagina-cornice .container { width: 100% !important; }
+/* pulsante di uscita */
+body.pagina-cornice > button {
+    font-family: var(--titoli) !important;
+    font-weight: 700;
+    font-size: 14px !important;
+    color: var(--inchiostro);
+    background: var(--pergamena) !important;
+    border: 1px solid #8a6a3e !important;
+    border-radius: 4px;
+    right: 10vw !important;
+    bottom: 10vh !important;
+}
+
+/* =====================================================================
+   4. SCHEDE DELLE FORMULE (fisica1.2.1 ... fisica1.2.6)
+   ===================================================================== */
+body.pagina-formula {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #cc9052;
+    background-image: radial-gradient(ellipse at center, #e2b27a 0%, #cc9052 55%, #a86f38 100%) !important;
+    font-family: var(--testo);
+    color: var(--inchiostro);
+}
+body.pagina-formula .cFormule {
+    width: min(1100px, 90vw);
+    gap: 36px !important;
+    padding: 28px 34px;
+    box-sizing: border-box;
+    background: rgba(250, 243, 228, 0.88);
+    border: 1px solid rgba(90, 65, 40, 0.4);
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(60, 30, 5, 0.35);
+}
+body.pagina-formula .imgGalileo { width: clamp(150px, 13vw, 250px) !important; }
+body.pagina-formula .titolo {
+    font-family: var(--titoli);
+    color: var(--oro);
+    font-size: clamp(26px, 2.3vw, 44px);
+    margin: 0 0 12px;
+}
+body.pagina-formula .formula {
+    font-size: clamp(24px, 2vw, 38px) !important;
+    margin: 6px 0;
+    padding: 4px 0 !important;
+    color: #1c1208;
+}
+body.pagina-formula .testoFormule { font-size: clamp(16px, 1.25vw, 23px); line-height: 1.5; }
+body.pagina-formula .testoFormule ul { margin: 6px 0 10px; }
+body.pagina-formula .testoFormule p:not(.formula) { margin: 8px 0; }
+body.pagina-formula > button {
+    font-family: var(--titoli) !important;
+    font-weight: 700;
+    font-size: 14px !important;
+    padding: 8px 14px;
+    color: var(--inchiostro);
+    background: var(--pergamena);
+    border: 1px solid #8a6a3e;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 700px) {
+    body.pagina-formula .cFormule { flex-direction: column; text-align: center; }
+    body.pagina-formula .formula { font-size: 22px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    body.pagina-storia .foto { animation: none !important; }
+}
+body.pagina-cornice .container h2 { color: var(--oro) !important; }
+
+/* =====================================================================
+   5. PULSANTE DELLA MUSICA (in basso a sinistra, in tutte le pagine)
+   ===================================================================== */
+#musica-toggle {
+    position: fixed !important;
+    left: 14px !important;
+    bottom: 14px !important;
+    top: auto !important;
+    right: auto !important;
+    width: auto !important;
+    height: auto !important;
+    z-index: 2000 !important;
+    padding: 6px 12px !important;
+    margin: 0 !important;
+    font-family: var(--titoli) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--inchiostro) !important;
+    background: rgba(250, 243, 228, 0.92) !important;
+    border: 1px solid #8a6a3e !important;
+    border-radius: 20px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+    text-shadow: none !important;
+    cursor: pointer;
+    opacity: 1 !important;
+}
+#musica-toggle:hover { background: #fff !important; }
+
+/* =====================================================================
+   6. VISORE (Meta Quest 3): bersagli più grandi, testo ingrandibile
+   ===================================================================== */
+/* voci del menu più facili da "pizzicare" */
+body.stanza .navbar a {
+    display: inline-block;
+    padding: 6px 10px;
+}
+/* video del planetario: si avviano toccandoli */
+body.stanza video { cursor: pointer; }
+body.stanza .suggerimento {
+    position: absolute;
+    left: 50%;
+    top: 58px;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 5px 14px;
+    font-family: var(--testo);
+    font-size: 15px;
+    color: #fff8e6;
+    background: rgba(26, 18, 10, 0.6);
+    border-radius: 16px;
+    white-space: nowrap;
+    z-index: 10000;
+}
+
+/* testo nella cornice: si tocca per ingrandirlo */
+body.stanza .zoomabile { cursor: zoom-in; }
+body.stanza .avviso-zoom {
+    position: absolute;
+    left: 648px;
+    top: 442px;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    font-family: var(--testo);
+    font-size: 13px;
+    color: #fff8e6;
+    background: rgba(26, 18, 10, 0.65);
+    border-radius: 14px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+body.stanza .lente {
+    position: absolute;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 10, 5, 0.72);
+    cursor: zoom-out;
+}
+body.stanza .lente-foglio {
+    position: relative;
+    width: 860px;
+    max-height: 600px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 34px 44px 30px;
+    font-family: var(--testo);
+    font-size: 23px;
+    line-height: 1.5;
+    color: var(--inchiostro);
+    background: #e7c08a;
+    border: 10px solid #2a1c10;
+    outline: 2px solid #b8913d;
+    outline-offset: -16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+body.stanza .lente-foglio h2 { font-family: var(--titoli); color: #5c3208; font-size: 30px; margin: 0 0 12px; }
+body.stanza .lente-foglio h3 { font-family: var(--titoli); color: #5c3208; font-size: 21px; margin: 0 0 4px; }
+body.stanza .lente-foglio p { margin: 0 0 12px; }
+body.stanza .lente-foglio ul { list-style: disc; padding-left: 28px; }
+body.stanza .lente-foglio img { float: right; width: 200px !important; height: auto !important; margin: 0 0 12px 18px; }
+body.stanza .lente-foglio .griglia { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; }
+body.stanza .lente-chiudi {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 4px 12px;
+    font-family: var(--titoli);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--inchiostro);
+    background: rgba(255, 250, 238, 0.85);
+    border: 1px solid #8a6a3e;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* pulsante schermo intero (index.html) */
+#schermo-intero {
+    position: fixed;
+    left: 14px;
+    bottom: 58px;
+    z-index: 2000;
+    padding: 6px 12px;
+    font-family: var(--titoli);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--inchiostro);
+    background: rgba(250, 243, 228, 0.92);
+    border: 1px solid #8a6a3e;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+#schermo-intero:hover { background: #fff; }
+
+/* =====================================================================
+   7. HALL: il monaco porta al Quiz del Monaco (quiz.html)
+   Coordinate sulla tela 1280x720 meno il bordo di 8px.
+   ===================================================================== */
+body.stanza > #monaco-quiz {
+    position: absolute;
+    left: 778px;
+    top: 280px;
+    width: 160px;
+    height: 345px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 40% 40% 12% 12%;
+    cursor: pointer;
+    transition: box-shadow 0.25s, background 0.25s;
+}
+body.stanza > #monaco-quiz:hover {
+    background: radial-gradient(ellipse at 50% 45%, rgba(255, 230, 160, 0.18), transparent 70%);
+    box-shadow: 0 0 30px rgba(231, 199, 122, 0.45);
+}
+body.stanza #etichetta-quiz {
+    position: absolute;
+    left: 850px;
+    top: 624px;
+    transform: translateX(-50%);
+    padding: 6px 18px;
+    text-align: center;
+    line-height: 1.3;
+    font-family: var(--titoli);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--inchiostro);
+    background: rgba(250, 243, 228, 0.92);
+    border: 1px solid #8a6a3e;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+    pointer-events: none;
+    animation: invito 2.4s ease-in-out infinite;
+}
+@keyframes invito {
+    0%, 100% { box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); }
+    50% { box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4), 0 0 16px 3px rgba(231, 199, 122, 0.8); }
+}
+@media (prefers-reduced-motion: reduce) {
+    body.stanza #etichetta-quiz { animation: none; }
+}
+
+/* =====================================================================
+   8. RIQUADRI A SCHEDE (fisica1.1, fisica2, fisica2.2)
+   Il testo è diviso in pagine brevi: le linguette in alto (grandi,
+   facili da toccare nel visore) cambiano pagina senza dover scorrere.
+   ===================================================================== */
+body.stanza .schede {
+    padding: 8px 14px 10px !important;
+    overflow: hidden !important;
+}
+body.stanza .linguette {
+    display: flex;
+    gap: 4px;
+    margin: 0 0 8px;
+    border-bottom: 2px solid #7a5a32;
+}
+body.stanza .linguette button {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    flex: 1;
+    min-height: 30px;
+    padding: 5px 2px 4px;
+    font-family: var(--titoli);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--inchiostro-2);
+    background: rgba(255, 250, 238, 0.3);
+    border: 1px solid rgba(90, 65, 40, 0.45);
+    border-bottom: 0;
+    border-radius: 7px 7px 0 0;
+    cursor: pointer;
+}
+body.stanza .linguette button:hover { background: rgba(255, 250, 238, 0.6); }
+body.stanza .linguette button.attiva { color: #5c3208; background: #fbefd2; }
+body.stanza .pagina { display: none; }
+body.stanza .pagina.attiva { display: block; animation: sfoglia 0.25s ease-out; }
+@keyframes sfoglia { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: none; } }
+
+body.stanza .schede h2 { font-size: 15px !important; margin: 0 0 7px !important; }
+body.stanza .schede .riga {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    column-gap: 6px;
+    align-items: start;
+    margin: 0 0 6px !important;
+    font-size: 13.5px;
+    line-height: 1.3;
+}
+body.stanza .schede .riga > span:first-child { font-size: 15px; text-align: center; }
+body.stanza .schede .evidenza {
+    margin: 8px auto 0 !important;
+    padding: 5px 12px;
+    width: fit-content;
+    font-family: var(--titoli);
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff3cf;
+    background: #5c3208;
+    border-radius: 14px;
+}
+body.stanza .schede .nota { font-size: 13.5px; margin: 0 0 8px !important; }
+body.stanza .schede .due-colonne { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+body.stanza .schede .box {
+    padding: 6px 6px 7px;
+    text-align: center;
+    font-size: 12.5px;
+    line-height: 1.25;
+    background: rgba(255, 250, 238, 0.5);
+    border: 1px solid rgba(90, 65, 40, 0.4);
+    border-radius: 6px;
+}
+body.stanza .schede .box .ico { display: block; font-size: 20px; }
+body.stanza .schede .box b { display: block; font-family: var(--titoli); color: #5c3208; margin: 2px 0; }
+body.stanza .schede .box small { display: block; margin-top: 4px; font-style: italic; color: var(--inchiostro-2); }
+body.stanza .schede .traiettoria { display: block; width: 100%; height: 40px; margin: 0; }
+body.stanza #p1.schede img.schema {
+    float: none;
+    display: block;
+    width: auto !important;
+    height: 138px !important;
+    margin: 0 auto !important;
+    background: rgba(255, 250, 238, 0.55);
+    border-radius: 6px;
+}
+body.stanza .schede .didascalia { text-align: center; font-size: 12.5px; font-style: italic; margin: 6px 0 0 !important; }
+
+/* nella lente (testo ingrandito) si vedono tutte le pagine una sotto l'altra */
+body.stanza .lente-foglio .linguette { display: none; }
+body.stanza .lente-foglio .pagina { display: block; animation: none; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid rgba(90, 65, 40, 0.35); }
+body.stanza .lente-foglio .pagina:last-of-type { border-bottom: 0; margin-bottom: 0; }
+body.stanza .lente-foglio .riga { display: grid; grid-template-columns: 36px 1fr; gap: 8px; margin: 0 0 10px; }
+body.stanza .lente-foglio .evidenza { width: fit-content; margin: 10px auto 0; padding: 6px 18px; font-family: var(--titoli); color: #fff3cf; background: #5c3208; border-radius: 20px; }
+body.stanza .lente-foglio .due-colonne { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+body.stanza .lente-foglio .box { padding: 10px; text-align: center; background: rgba(255, 250, 238, 0.5); border-radius: 8px; }
+body.stanza .lente-foglio .box .ico, body.stanza .lente-foglio .box b, body.stanza .lente-foglio .box small { display: block; }
+body.stanza .lente-foglio .traiettoria { display: block; width: 70%; margin: 0 auto; }
+body.stanza .lente-foglio img.schema { float: none !important; display: block; width: auto !important; height: 300px !important; margin: 0 auto !important; }
+body.stanza .lente-foglio .didascalia { text-align: center; font-style: italic; }
+
+/* =====================================================================
+   9. TAVOLE ILLUSTRATE (matematica1, matematica3) — disegni originali
+   ===================================================================== */
+body.pagina-cornice figure.tavola {
+    margin: 14px auto 6px;
+    padding: 10px 12px 8px;
+    max-width: 420px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #f4e6c8;
+    border: 1px solid #b59a74;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(60, 30, 5, 0.18);
+    font-family: var(--testo);
+}
+body.pagina-cornice figure.tavola.larga { max-width: 900px; margin-top: 18px; }
+body.pagina-cornice figure.tavola svg { display: block; width: 100%; height: auto; font-family: var(--testo); }
+body.pagina-cornice figure.tavola figcaption {
+    margin-top: 6px;
+    font-family: var(--titoli);
+    font-weight: 700;
+    font-size: clamp(14px, 1vw, 19px);
+    color: #5c3208;
+}

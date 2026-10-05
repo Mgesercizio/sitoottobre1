@@ -1,0 +1,59 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teoria</title>
+        <link rel="stylesheet" href="styleFisica1.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza">
+        <div class="navbar">
+            <ul>
+                <li><a href="fisica1.html">Home</a></li>
+                <li><a href="fisica1.2.html">Formule</a></li>
+                <li><a href="fisica1.3.html">Esempi</a></li>
+            </ul>
+        </div>
+        
+        <button onclick="mostra1()">
+            Clicca
+        </button>
+
+        
+
+        <div class="content schede">
+            <section class="pagina" data-titolo="🎯 Cos'è?">
+                <h2>Il moto parabolico</h2>
+                <p class="riga"><span>🏀</span><span>Un corpo viene <b>lanciato</b> con velocità iniziale…</span></p>
+                <p class="riga"><span>🌍</span><span>…e su di lui agisce <b>solo la gravità</b>.</span></p>
+                <svg class="traiettoria" viewBox="0 0 260 62" aria-hidden="true">
+                    <line x1="6" y1="56" x2="254" y2="56" stroke="#5a4128" stroke-width="1.5"/>
+                    <path d="M14 56 Q130 -38 246 56" fill="none" stroke="#7a2e12" stroke-width="2.5" stroke-dasharray="6 5"/>
+                    <circle cx="130" cy="9" r="6" fill="#5c3208"/>
+                    <path d="M14 56 l26 -26" stroke="#2b1d10" stroke-width="2"/><path d="M40 30 l-9 1 l8 8 z" fill="#2b1d10"/>
+                    <text x="46" y="30" font-size="11" font-style="italic" fill="#2b1d10">v₀</text>
+                </svg>
+                <p class="evidenza">La traiettoria è una parabola</p>
+            </section>
+            <section class="pagina" data-titolo="🧩 I due moti">
+                <h2>Due moti in uno</h2>
+                <p class="nota">Galileo scoprì che sono <b>indipendenti</b>:</p>
+                <div class="due-colonne">
+                    <div class="box"><span class="ico">➡️</span><b>Orizzontale</b>Moto rettilineo uniforme<small>velocità costante</small></div>
+                    <div class="box"><span class="ico">⬇️</span><b>Verticale</b>Moto uniformemente accelerato<small>caduta libera: g verso il basso</small></div>
+                </div>
+            </section>
+        </div>
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+                function mostra1() {
+                location.href = "fisica.html";
+            }
+        </script>
+            <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>

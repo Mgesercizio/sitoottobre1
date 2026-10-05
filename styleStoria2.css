@@ -1,0 +1,172 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-image: url('sfondomassimo2.jpeg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 8px;
+    gap: 5px;
+}
+
+.titolo {
+    text-align: center;
+    background-color: white;
+    opacity: 0.65;
+    margin: 0;
+    padding: 2px 4px;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+/* Riga in alto: marquee + div generale */
+.top-row {
+    display: flex;
+    gap: 12px;
+    height: 28vh;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-wrapper {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 28%;
+    height: 20vh;
+}
+
+.foto {
+    width: 200px;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    opacity: 0.65;
+    border-radius: 20%;
+    animation: muovi 7s infinite alternate ease-in-out;
+}
+
+@keyframes muovi {
+    from { left: 0; }
+    to { left: calc(100% - 200px); }
+}
+
+/* Div generale: stessa altezza del marquee */
+.testo.generale {
+    flex: 0 0 38%;
+    height: 24vh;
+    overflow: hidden;
+}
+
+.esempi-titolo {
+    text-align: center;
+    background-color: white;
+    opacity: 0.65;
+    margin: 0;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* Contenitore esempi */
+.esempi-container {
+    display: flex;
+    flex: 1;
+    gap: 0;
+    min-height: 0;
+    padding: 0 2.5%;
+    box-sizing: border-box;
+}
+
+/* Ogni esempio: colonna con testo sopra e immagine sotto */
+.esempio {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+    min-height: 0;
+}
+
+.esempio img {
+    width: 75%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    opacity: 0.75;
+    margin: 0 auto;
+    display: block;
+}
+
+.esempio img.img-curiosita {
+    width: 100%;
+}
+
+.colonna-sinistra {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 40%;
+    gap: 5px;
+    min-height: 0;
+    margin-right: 2.5%;
+}
+
+.img-giotto {
+    flex: 0 0 20%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    opacity: 0.75;
+    align-self: center;
+    margin-right: 7.5%;
+}
+
+
+.testo {
+    background-color: white;
+    opacity: 0.65;
+    border-radius: 5px;
+    padding: 5px 10px;
+    overflow: hidden;
+    flex: 0 0 auto;
+    height: fit-content;
+}
+
+.testo p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+button{
+    width: 100px;
+    height: 80px;
+    background-color: #c0c0c0;
+    border: 2px solid #888;
+    cursor: pointer;
+    align-self: center;
+    flex-shrink: 0;
+    margin-left: 20px;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+#bp1 {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    margin: 0;
+    width: 140px;
+    height: 50px;
+}

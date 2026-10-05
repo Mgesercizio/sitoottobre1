@@ -1,0 +1,95 @@
+body {
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    background-image: url("sfondo_stanza.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    color:White;              
+}
+
+.testo_orbite{
+    position: absolute; 
+    left: 450px;
+    top: 115px;
+    width: 50%; 
+    z-index: 9999;
+    opacity:0.99;
+}
+
+.testo_orbite video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.orbita_ellittica { 
+    position: absolute; 
+    left: 380px;
+    top:165px;
+    width: 20%; 
+    z-index: 9999;
+    opacity:0.99;
+}
+
+.orbita_ellittica video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.orbita_iperbolica { 
+    position: absolute; 
+    left: 740px;
+    top: 165px;
+    width: 20%; 
+    z-index: 9999;
+    opacity:0.99;
+}
+
+.orbita_iperbolica video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+            
+.orbita_parabolica { 
+    position: absolute; 
+    left: 380px;
+    top:315px;
+    width: 20%; 
+    z-index: 9999;
+    opacity:0.99;
+}
+
+.orbita_parabolica video {
+     width: 100%;
+    height: auto;
+    display: block;
+}
+            
+.orbita_circolare { 
+    position: absolute; 
+    left: 740px;
+    top: 315px;
+    width: 20%; 
+    z-index: 9999;
+    opacity:0.99;
+}
+
+.orbita_circolare video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#exit {
+    position: absolute;
+    width: 130px;
+    height: 220px;
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    color: lightgray;
+    font-size: 15px;
+    bottom: 70px;
+    left: 45%;
+}

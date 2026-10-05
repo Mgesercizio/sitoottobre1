@@ -1,0 +1,73 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styleMatematica.css">
+        <title>Matematica</title>
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza">
+        <button id="bp" onclick="mostra1()">
+            Clicca qui per entrare
+        </button>
+            
+        <button id="b1" onclick="zoom1()">
+            Clicca qui per vedere la parabola
+        </button>
+            
+        <button id="b2" onclick="zoom2()">
+            Clicca qui per vedere la circonferenza e l'ellisse
+        </button>
+            
+        <button id="b3" onclick="zoom3()">
+            Clicca qui per vedere l'iperbole
+        </button>
+
+        <button id="bh" onclick="tornaHall()" disabled>
+            Torna alla Hall
+        </button>
+
+        <video id="vintro" plays-inline class="video" style="display: none;">
+            <source src="videoEntrata.mp4" type="video/mp4">
+        </video>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            document.getElementById("b1").style.visibility = "hidden";
+            document.getElementById("b2").style.visibility = "hidden";
+            document.getElementById("b3").style.visibility = "hidden";
+
+            function mostra1() {
+                var video = document.getElementById("vintro");
+                video.style.display = "block";
+                video.play();
+                document.getElementById("b1").style.visibility = "visible";
+                document.getElementById("b2").style.visibility = "visible";
+                document.getElementById("b3").style.visibility = "visible";
+                document.getElementById("bp").disabled = true;
+                document.getElementById("bh").disabled = false;
+            }
+
+            function tornaHall() {
+                location.href = "hall.html";
+            }
+
+            function zoom1() {
+                location.href = "matematica3.html";
+            }
+
+            function zoom2() {
+                location.href = "matematica1.html";
+            }
+
+            function zoom3() {
+                location.href = "matematica2.html";
+            }
+        </script>
+            <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>

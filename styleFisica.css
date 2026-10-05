@@ -1,0 +1,35 @@
+body{
+    background-image: url(backgroundSelezioneFisica.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+button{
+    width: 130px;
+    height: 220px;
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+#button1{
+    position: absolute;
+    top: 205px;
+    left: 0px;
+}
+
+#button2{
+    position: absolute;
+    top: 210px;
+    right: 5px;
+}
+
+#button3{
+    position: absolute;
+    top: 225px;
+    left: 380px;
+}

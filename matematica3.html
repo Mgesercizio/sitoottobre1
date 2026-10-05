@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleMatematica3.css">
+        <title>Studio della Parabola</title>
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="pagina-cornice">
+        <div class="dentro-cornice">
+            <h1>Studio della Parabola</h1>
+            <p class="sottotitolo">Formule, coefficienti, intersezioni e studio analitico</p>
+
+        <div class="container">
+
+            <div>
+                <h2>Definizione della Parabola</h2>
+                <p>La <strong>parabola</strong> è il luogo geometrico dei punti equidistanti da un punto fisso (<strong>fuoco</strong> F) e da una retta fissa (<strong>direttrice</strong> d).</p>
+                <div class="formula">Distanza(P, Fuoco) = Distanza(P, Direttrice)</div>
+                <ul>
+                    <li><strong>Vertice (V):</strong> punto di massimo o minimo della curva.</li>
+                    <li><strong>Asse di simmetria:</strong> retta passante per fuoco e vertice.</li>
+                    <li><strong>Fuoco (F):</strong> punto interno alla concavità.</li>
+                    <li><strong>Direttrice:</strong> retta perpendicolare all'asse di simmetria, esterna alla curva.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Formule Principali</h2>
+                <h3>Discriminante</h3>
+                <div class="formula">Δ = b² − 4ac</div>
+                <h3>Vertice</h3>
+                <div class="formula">x<sub>V</sub> = −b / 2a &nbsp;&nbsp; y<sub>V</sub> = −Δ / 4a</div>
+                <h3>Fuoco</h3>
+                <div class="formula">x<sub>F</sub> = −b / 2a &nbsp;&nbsp; y<sub>F</sub> = (1 − Δ) / 4a</div>
+                <h3>Asse di simmetria e Direttrice</h3>
+                <div class="formula">Asse: x = −b / 2a &nbsp;&nbsp; Direttrice: y = −(1 + Δ) / 4a</div>
+            </div>
+            </div>
+            <figure class="tavola larga">
+                <svg viewBox="0 0 900 300" role="img" aria-label="A sinistra la parabola con fuoco, direttrice e vertice; a destra un'antenna parabolica che concentra i segnali nel fuoco">
+                    <!-- sinistra: definizione -->
+                    <text x="215" y="28" text-anchor="middle" font-size="19" font-weight="700" fill="#9a6a17">La definizione</text>
+                    <line x1="215" y1="40" x2="215" y2="290" stroke="#9a8a6a" stroke-width="1" stroke-dasharray="4 4"/>
+                    <line x1="30" y1="247" x2="400" y2="247" stroke="#3b2410" stroke-width="2.5"/>
+                    <text x="382" y="268" font-size="16" font-style="italic" fill="#3b2410">d</text>
+                    <path d="M55 52 Q215 358 375 52" fill="rgba(154,106,23,0.08)" stroke="#3b2410" stroke-width="3"/>
+                    <circle cx="215" cy="205" r="6" fill="#3b2410"/><text x="223" y="222" font-size="16" font-weight="700" fill="#3b2410">V</text>
+                    <circle cx="215" cy="163" r="7" fill="#7a2e12"/><text x="192" y="161" font-size="16" font-weight="700" fill="#7a2e12">F</text>
+                    <line x1="330" y1="126" x2="215" y2="163" stroke="#7a2e12" stroke-width="2" stroke-dasharray="6 4"/>
+                    <line x1="330" y1="126" x2="330" y2="247" stroke="#7a2e12" stroke-width="2" stroke-dasharray="6 4"/>
+                    <circle cx="330" cy="126" r="6" fill="#3b2410"/><text x="338" y="120" font-size="16" font-weight="700" fill="#3b2410">P</text>
+                    <rect x="330" y="237" width="10" height="10" fill="none" stroke="#7a2e12" stroke-width="1.5"/>
+                    <text x="258" y="137" font-size="14" fill="#7a2e12" font-style="italic">PF</text>
+                    <text x="338" y="200" font-size="14" fill="#7a2e12" font-style="italic">PH</text>
+                                        <!-- separatore -->
+                    <line x1="450" y1="30" x2="450" y2="280" stroke="#b59a74" stroke-width="1.5"/>
+                    <!-- destra: antenna -->
+                    <text x="675" y="28" text-anchor="middle" font-size="19" font-weight="700" fill="#9a6a17">Nella realtà</text>
+                    <path d="M530 80 Q675 290 820 80" fill="#e9d6ae" stroke="#3b2410" stroke-width="4"/>
+                    <g stroke="#9a6a17" stroke-width="2" opacity="0.85">
+                        <line x1="560" y1="45" x2="560" y2="119"/><line x1="610" y1="45" x2="610" y2="164"/>
+                        <line x1="740" y1="45" x2="740" y2="164"/><line x1="790" y1="45" x2="790" y2="119"/>
+                        <line x1="560" y1="119" x2="675" y2="135"/><line x1="610" y1="164" x2="675" y2="135"/>
+                        <line x1="740" y1="164" x2="675" y2="135"/><line x1="790" y1="119" x2="675" y2="135"/>
+                    </g>
+                    <g fill="#9a6a17"><path d="M555 70 l5 10 l5 -10 z"/><path d="M605 70 l5 10 l5 -10 z"/><path d="M735 70 l5 10 l5 -10 z"/><path d="M785 70 l5 10 l5 -10 z"/></g>
+                    <line x1="675" y1="135" x2="675" y2="185" stroke="#3b2410" stroke-width="3"/>
+                    <circle cx="675" cy="135" r="8" fill="#7a2e12"/>
+                    <text x="690" y="126" font-size="15" font-weight="700" fill="#7a2e12" stroke="#f4e6c8" stroke-width="4" paint-order="stroke">fuoco</text>
+                    <path d="M675 185 L675 255 M645 262 L705 262" stroke="#3b2410" stroke-width="5" stroke-linecap="round"/>
+                    <text x="675" y="292" text-anchor="middle" font-size="15" font-style="italic" fill="#3b2410">l'antenna parabolica raccoglie i segnali nel fuoco</text>
+                </svg>
+                <figcaption>PF = PH: ogni punto della parabola è equidistante dal fuoco e dalla direttrice</figcaption>
+            </figure>
+        </div>
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "matematica.html";
+            }
+        </script>
+        <button id="button1" onclick="mostra1()">
+            Clicca
+        </button>
+            <script src="musica.js"></script>
+    </body>
+</html>

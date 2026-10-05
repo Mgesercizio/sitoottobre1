@@ -1,0 +1,42 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styleFisica1.2.css">
+        <title>Legge Oraria Verticale</title>
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="pagina-formula" style="background-color: #cc9052;">
+        <div class="cFormule">
+            <img src="galileoGalilei.jpg" alt="Galileo Galilei" class="imgGalileo">
+            <div class="testoFormule">
+                <h1 class="titolo">Legge Oraria Verticale</h1>
+                <p class="formula">y = v₀ · sin(θ) · t - ½gt²</p>
+                <p class="formula">s = v₀t + ½at²</p>
+                Nel moto parabolico:
+
+                <ul>
+                    <li>l’accelerazione è quella di gravità</li>
+                    <li>a = -g</li>
+                </ul>
+
+                Il segno negativo indica che la gravità è diretta verso il basso.
+            </div>
+        </div>
+
+        <button onclick="mostra1()">
+            Torna indietro
+        </button>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "fisica1.2.html";
+            }
+        </script>
+            <script src="musica.js"></script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="styleFisica1.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza" style="background-image: url(backgroundStanzeGenerale.png); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed; position: relative;">
+        <div class="navbar">
+            <ul>
+                <li><a href="fisica1.1.html">Teoria</a></li>
+                <li><a href="fisica1.2.html">Formule</a></li>
+                <li><a href="fisica1.3.html">Esempi</a></li>
+            </ul>
+        </div>
+
+        <button onclick="mostra1()">
+            Clicca
+        </button>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "fisica.html";
+            }
+        </script>
+
+        <img src="MotoParabolico.JPG" alt="foto di un moto parabolico" class="quadro-img">
+            <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>

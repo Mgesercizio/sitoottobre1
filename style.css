@@ -1,0 +1,38 @@
+body{
+    background-image: url(backgroundP.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+button{
+    width: 130px;
+    height: 220px;
+    background-color: transparent;
+    border-color: transparent;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+/* pulsanti centrati sulle pergamene di sinistra e di destra */
+#button1{
+    position: absolute;
+    top: 212px;
+    left: 1px;
+}
+
+#button2{
+    position: absolute;
+    width: 130px;
+    height: 170px;
+    top: 275px;
+    left: 392px;
+}
+
+#button3{
+    position: absolute;
+    top: 212px;
+    left: 1141px;
+}

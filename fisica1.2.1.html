@@ -1,0 +1,41 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styleFisica1.2.css">
+        <title>Scomposizione Velocità</title>
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="pagina-formula" style="background-color: #cc9052;">
+        <div class="cFormule">
+            <img src="galileoGalilei.jpg" alt="Galileo Galilei" class="imgGalileo">
+            <div class="testoFormule">
+                <h1 class="titolo">Scomposizione Della Velocità</h1>
+                <p class="formula">v₀x = v₀ · cos(θ)</p>
+                <p class="formula">v₀y = v₀ · sin(θ)</p>
+                Derivano dalla trigonometria del triangolo rettangolo:
+                <ul>
+                    <li>cos(θ) = cateto adiacente / ipotenusa</li>
+                    <li>sin(θ) = cateto opposto / ipotenusa</li>
+                </ul>
+            </div>
+        </div>
+
+        <button onclick="mostra1()">
+            Torna indietro
+        </button>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            function mostra1() {
+                location.href = "fisica1.2.html";
+            }
+        </script>
+    
+            <script src="musica.js"></script>
+    </body>
+</html>

@@ -1,0 +1,331 @@
+/* =====================================================================
+   styleQuiz.css — la Sala del Quiz del Monaco
+   La pagina è una "stanza" (tela 1280x720, come le altre): tutte le
+   misure qui sotto sono in pixel della tela, museo.js la adatta allo
+   schermo e al visore.
+   ===================================================================== */
+body {
+    background-image: url(backgroundStanzeGenerale.png);
+    background-repeat: no-repeat;
+}
+
+/* contenitore alle stesse coordinate dello sfondo (compensa il bordo di 8px) */
+#scena {
+    position: absolute;
+    left: -8px;
+    top: -8px;
+    width: 1280px;
+    height: 720px;
+}
+
+/* ---------- targa nel quadro di sinistra ---------- */
+#targa {
+    position: absolute;
+    left: 176px;
+    top: 134px;
+    width: 116px;
+    height: 280px;
+    box-sizing: border-box;
+    padding: 14px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--inchiostro);
+}
+#targa h1 {
+    margin: 0;
+    font-family: var(--titoli);
+    font-size: 15px;
+    line-height: 1.25;
+    color: #5c3208;
+}
+#targa .grande {
+    margin: auto 0;
+    font-family: var(--titoli);
+    font-size: 96px;
+    line-height: 1;
+    color: rgba(92, 50, 8, 0.28);
+}
+#targa .fregio { width: 64px; height: 2px; background: var(--oro); margin: 10px 0; }
+#targa .sotto { font-family: var(--testo); font-style: italic; font-size: 13px; line-height: 1.3; color: var(--inchiostro-2); }
+#targa .contatore { margin-top: auto; font-family: var(--titoli); font-size: 15px; font-weight: 700; }
+#targa .punti { font-family: var(--testo); font-size: 14px; margin-top: 4px; }
+#perline { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-top: 10px; }
+#perline span {
+    width: 12px; height: 12px; border-radius: 50%;
+    border: 1.5px solid #8a6a3e; background: transparent;
+}
+#perline span.giusta  { background: #5f7d3a; border-color: #5f7d3a; }
+#perline span.sbagliata { background: #9c3d22; border-color: #9c3d22; }
+#perline span.fatta   { background: var(--oro); border-color: var(--oro); }
+#perline span.ora     { box-shadow: 0 0 0 3px rgba(154, 106, 23, 0.35); }
+
+/* ---------- il monaco ---------- */
+#monaco {
+    position: absolute;
+    left: 356px;
+    top: 222px;
+    width: 156px;
+    height: 338px;
+    padding: 0;
+    border: 0;
+    background: url(monaco.png) center bottom / contain no-repeat;
+    cursor: pointer;
+    filter: drop-shadow(0 14px 10px rgba(0, 0, 0, 0.45));
+    transform-origin: 50% 100%;
+    transition: filter 0.2s;
+}
+#monaco:hover { filter: drop-shadow(0 14px 10px rgba(0, 0, 0, 0.45)) brightness(1.12); }
+#monaco.salta { animation: salta 0.6s ease-out; }
+#monaco.scuote { animation: scuote 0.5s ease-in-out; }
+@keyframes salta {
+    0%, 100% { transform: translateY(0); }
+    35% { transform: translateY(-26px); }
+    60% { transform: translateY(0); }
+    78% { transform: translateY(-8px); }
+}
+@keyframes scuote {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-3deg); }
+    75% { transform: rotate(3deg); }
+}
+
+/* ---------- fumetto del monaco (come la nuvoletta della Hall) ---------- */
+#fumetto {
+    position: absolute;
+    left: 300px;
+    top: 70px;
+    width: 216px;
+    min-height: 92px;
+    box-sizing: border-box;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--titoli);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #2b1d10;
+    background: #fffdf6;
+    border: 2px solid #3a2a1a;
+    border-radius: 48% 52% 46% 54% / 55% 50% 50% 45%;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+#fumetto::before, #fumetto::after {
+    content: "";
+    position: absolute;
+    background: #fffdf6;
+    border: 2px solid #3a2a1a;
+    border-radius: 50%;
+}
+#fumetto::before { width: 18px; height: 14px; left: 118px; bottom: -22px; }
+#fumetto::after  { width: 10px; height: 8px;  left: 128px; bottom: -36px; }
+#fumetto.nuovo { animation: pop 0.35s ease-out; }
+@keyframes pop {
+    0% { transform: scale(0.92); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
+}
+#tocca-monaco {
+    position: absolute;
+    left: 434px;
+    top: 572px;
+    transform: translateX(-50%);
+    padding: 5px 14px;
+    font-family: var(--testo);
+    font-size: 14px;
+    color: #fff8e6;
+    background: rgba(26, 18, 10, 0.62);
+    border-radius: 16px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* ---------- la grande pergamena del quiz ---------- */
+#pergamena {
+    position: absolute;
+    left: 540px;
+    top: 64px;
+    width: 448px;
+    height: 556px;
+    box-sizing: border-box;
+    padding: 26px 30px 22px;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--testo);
+    color: var(--inchiostro);
+    background:
+        radial-gradient(ellipse at 50% 40%, rgba(255, 248, 230, 0.9), rgba(255, 248, 230, 0) 70%),
+        linear-gradient(160deg, #f1dfb8, #e2c692);
+    border: 10px solid #2a1c10;
+    outline: 2px solid #b8913d;
+    outline-offset: -18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), inset 0 0 40px rgba(120, 80, 30, 0.35);
+}
+#pergamena h2 {
+    margin: 0 0 4px;
+    font-family: var(--titoli);
+    font-size: 22px;
+    color: #5c3208;
+    text-align: center;
+}
+#pergamena .intro {
+    margin: 0 0 14px;
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--inchiostro-2);
+}
+
+/* menu delle tre prove */
+.prova {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    align-items: center;
+    column-gap: 12px;
+    width: 100%;
+    margin: 0 0 14px;
+    padding: 16px 16px;
+    text-align: left;
+    font: inherit;
+    color: var(--inchiostro);
+    background: rgba(255, 250, 238, 0.6);
+    border: 1px solid rgba(90, 65, 40, 0.5);
+    border-left: 5px solid var(--oro);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.prova:hover { background: rgba(255, 250, 238, 0.95); }
+.prova .icona { grid-row: span 2; font-size: 32px; text-align: center; }
+.prova b { font-family: var(--titoli); font-size: 17px; color: #3b2410; }
+.prova small { font-size: 14px; color: var(--inchiostro-2); }
+.prova.fatta b::after { content: "  ✓"; color: #5f7d3a; }
+
+.piede {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+.link-lieve {
+    padding: 4px 6px;
+    font-family: var(--testo);
+    font-size: 13px;
+    color: var(--inchiostro-2);
+    background: none;
+    border: 0;
+    border-bottom: 1px dotted #8a6a3e;
+    cursor: pointer;
+}
+
+/* domanda */
+.numero { font-family: var(--titoli); font-size: 13px; color: var(--oro); text-align: center; margin-bottom: 4px; }
+.domanda {
+    margin: 0 0 14px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    color: #22160b;
+}
+.risposte { display: flex; flex-direction: column; gap: 8px; }
+.risposta {
+    width: 100%;
+    min-height: 46px;
+    padding: 8px 14px;
+    text-align: left;
+    font-family: var(--testo);
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--inchiostro);
+    background: rgba(255, 250, 238, 0.7);
+    border: 1px solid rgba(90, 65, 40, 0.5);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.risposta:hover:not(:disabled) { background: #fffaf0; border-color: var(--oro); }
+.risposta:disabled { cursor: default; }
+.risposta.giusta { background: #dfe8c8; border: 2px solid #5f7d3a; font-weight: 600; }
+.risposta.sbagliata { background: #f0d0c2; border: 2px solid #9c3d22; }
+.risposta.scelta { background: #f6e3b0; border: 2px solid var(--oro); font-weight: 600; }
+.risposta.spenta { opacity: 0.55; }
+
+.spiegazione {
+    margin: 12px 0 0;
+    padding: 8px 12px;
+    font-size: 14.5px;
+    line-height: 1.4;
+    background: rgba(255, 250, 238, 0.65);
+    border-left: 3px solid var(--oro);
+}
+.spiegazione a, .ripasso a { color: #7a2e12; font-weight: 600; }
+
+/* pulsanti principali */
+.bottone {
+    padding: 9px 18px;
+    font-family: var(--titoli);
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff8e6;
+    background: #4a3520;
+    border: 1px solid #2a1c10;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.bottone:hover { background: #5c4228; }
+.bottone.chiaro { color: var(--inchiostro); background: rgba(255, 250, 238, 0.85); border-color: #8a6a3e; }
+.bottone.chiaro:hover { background: #fff; }
+
+/* risultati */
+.voto {
+    margin: 4px 0 2px;
+    text-align: center;
+    font-family: var(--titoli);
+    font-size: 54px;
+    line-height: 1;
+    color: #5c3208;
+}
+.titolo-premio { text-align: center; font-family: var(--titoli); font-size: 18px; margin: 6px 0 10px; }
+.ripasso { font-size: 15px; line-height: 1.4; }
+.ripasso ul { margin: 6px 0 0; padding-left: 20px; }
+.riepilogo { font-size: 15px; line-height: 1.45; }
+.riepilogo li { margin-bottom: 4px; }
+
+/* registro del docente */
+.registro { overflow-y: auto; font-size: 13.5px; line-height: 1.35; scrollbar-width: thin; scrollbar-color: #8a6a3e transparent; }
+.registro h3 { margin: 10px 0 4px; font-family: var(--titoli); font-size: 14px; color: #5c3208; }
+.registro .riga { display: grid; grid-template-columns: 1fr 80px 28px; align-items: center; gap: 8px; margin: 3px 0; }
+.registro .barra { height: 9px; background: rgba(90, 65, 40, 0.15); }
+.registro .barra i { display: block; height: 100%; background: var(--oro); }
+.registro .num { text-align: right; font-weight: 700; }
+
+/* ---------- porta di uscita verso la Hall ---------- */
+#porta {
+    position: absolute;
+    left: 1016px;
+    top: 214px;
+    width: 124px;
+    height: 330px;
+    padding: 0 0 70px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: var(--titoli);
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff3cf;
+    text-shadow: 0 1px 3px #000, 0 0 10px #000;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+#porta:hover { color: #fff; text-shadow: 0 0 10px var(--oro-chiaro), 0 1px 3px #000; }
+
+@media (prefers-reduced-motion: reduce) {
+    #monaco.salta, #monaco.scuote, #fumetto.nuovo { animation: none; }
+}
+.registro { flex: 1 1 auto; min-height: 0; }

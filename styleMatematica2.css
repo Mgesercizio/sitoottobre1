@@ -1,0 +1,89 @@
+html, body{
+    height: 100%;
+    overflow: hidden; /* Blocca lo scroll della pagina */
+}
+
+body{
+    background-image: url('cornice.png');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    background-size: 100% 100%;
+}
+
+.cornice {
+    width: 80%;
+    height: calc(100vh - 80px); /* Occupa tutta la viewport meno i margini */
+    margin: 40px;
+    top: 0px;
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden; /* Nessun tipo di scorrimento */
+    scale: 0.9;
+    padding: 10px;
+}
+
+.cornice h1 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.cornice h2 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+#tableX{
+    width: 100%;
+    padding: 8px;
+    background-color: #dbd2d2;
+    font-size: 13px;
+}
+
+#tableY{
+    width: 100%;
+    padding: 8px;
+    background-color: rgb(221, 218, 204);
+    font-size: 13px;
+}
+
+/* Limita la dimensione delle immagini nelle tabelle */
+#tableX img, #tableY img {
+    max-height: 160px;
+    width: auto;
+    display: block;
+}
+
+.definizione{
+    padding: 8px;
+    border: 2px solid rgb(100, 100, 100);
+    background: #d6d6d6;
+    font-size: 14px;
+}
+
+.sulleX{
+    border: 2px solid maroon;
+    padding: 8px;
+    background-color: #dbd2d2;
+}
+
+.sulleY{
+    border: 2px solid rgb(130, 110, 0);
+    padding: 8px;
+    background-color: rgb(221, 218, 204);
+}
+
+button{
+    position: fixed;
+    bottom: 50px;
+    right: 110px;
+    width: 130px;
+    height: 40px;
+    background-color: #c0c0c0;
+    border: 2px solid #888;
+    cursor: pointer;
+    z-index: 999;
+    font-family: 'Trajan Pro', 'Times New Roman', Times, serif;
+    font-size: 15px;
+}

@@ -1,0 +1,56 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Esempi</title>
+        <link rel="stylesheet" href="styleFisica1.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza">
+        <div class="navbar">
+            <ul>
+                <li><a href="fisica1.html">Home</a></li>
+                <li><a href="fisica1.1.html">Teoria</a></li>
+                <li><a href="fisica1.2.html">Formule</a></li>
+            </ul>
+        </div>
+
+        <button onclick="mostra1()">
+            Clicca
+        </button>
+
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "fisica.html";
+            }
+        </script>
+
+        <div class="quadro esempio">
+            <p class="traccia">Un pallone viene lanciato con velocità iniziale di 20 m/s con un angolo di 45° rispetto al suolo. Calcolare la gittata.</p>
+            <div class="griglia">
+                <div>
+                    <h3>Dati</h3>
+                    <p>v₀ = 20 m/s<br>θ = 45°<br>g = 9,8 m/s²</p>
+                </div>
+                <div>
+                    <h3>Formula</h3>
+                    <p class="formula-evid">G = (v₀² · sin(2θ)) / g</p>
+                </div>
+                <div>
+                    <h3>Svolgimento</h3>
+                    <p>Sostituiamo i valori:<br><strong>G = (20² · sin(90°)) / 9,8</strong><br><strong>G = (400 · 1) / 9,8</strong><br><strong>G ≈ 40,8 m</strong></p>
+                </div>
+                <div>
+                    <h3>Risultato</h3>
+                    <p>La gittata del pallone è circa <strong>40,8 metri</strong>.</p>
+                </div>
+            </div>
+        </div>
+        <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+    <!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Stanza Scienza</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styleScienze.css">
+            <link rel="stylesheet" href="museo.css">
+    </head>
+    <body class="stanza">
+        <div class="marquee-text">
+            <marquee behavior="alternate" scrollmount="5"  style="opacity: 0.4;">
+                <h1>ATTENZIONE TRA POCHI ISTANTI INIZIERA' LA PROIEZIONE</h1>
+            </marquee>
+        </div>
+
+        <p class="suggerimento">Tocca un video per avviarlo, toccalo di nuovo per fermarlo</p>
+
+        <div class="orbita_ellittica">
+            <video poster="poster_oellitiche.jpeg" onclick="this.paused ? this.play() : this.pause()" muted>
+                <source src="orbite_ellittiche.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="orbita_iperbolica" >
+            <video poster="stelle_poster.jpeg" onclick="this.paused ? this.play() : this.pause()" muted>
+                <source src="orbita_iperbolica.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="orbita_parabolica" >
+            <video poster="stelle_posterr.jpeg" onclick="this.paused ? this.play() : this.pause()" muted>
+                <source src="orbita_parabolica.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="orbita_circolare" >
+            <video poster="stelle_posterr.jpeg" onclick="this.paused ? this.play() : this.pause()" muted>
+                <source src="orbita_circolare.mp4" type="video/mp4">
+            </video>
+        </div>
+
+
+        <table width="100%">
+            <tr>
+                <td style="padding-left:50px;"><br><br><br>
+                    <video poster="stelle.jpeg" width=50% height=50%  title="Tocca il video per avviarlo o fermarlo" onclick="this.paused ? this.play() : this.pause()" muted>
+                        <source src="animazione_orbite.mp4" type="video/mp4">
+                    </video>
+                </td>
+                <td style="opacity: 0.76; font-family: Roboto ; font-size:16.5px; padding-right:5px; padding-left:150px;">
+                    <video width="86%" onclick="this.paused ? this.play() : this.pause()" muted>
+                </td>
+                <td><br><br>
+                    <video  poster="stelle_poster.jpeg" width="300" height="150" alt="video" muted playsinline onclick="this.paused ? this.play() : this.pause()" muted>
+                        <source src="video_foto_orbite.mp4" type="video/mp4">
+                    </video>
+                </td>
+            </tr>   
+        </table>
+        <br><br><br><br><br>
+        <button id="exit" onclick="mostra1()">
+            Clicca qui per uscire
+        </button>
+        <audio id="bgMusic" loop style="display:none">
+            <source src="musicaMuseo.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            function mostra1() {
+                location.href = "storia.html";
+            }
+        </script>
+            <script src="museo.js"></script>
+            <script src="musica.js"></script>
+    </body>
+</html>
